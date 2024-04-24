@@ -29,6 +29,6 @@ services:
     image: rolis88/taski_gateway
     env_file: .env
     ports:
-      - 8080:80
+      - 8000:80
     volumes:
       - static:/static
