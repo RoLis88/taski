@@ -15,7 +15,7 @@ services:
     image: rolis88/taski_backend
     env_file: .env
     volumes:
-      - static:/backend_static
+      - static:/static_backend
       - media:/app/media
     depends_on:
       - db
