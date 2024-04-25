@@ -23,4 +23,4 @@ RUN pip install -r requirements.txt --no-cache-dir
 COPY . .
 
 # При старте контейнера запустить сервер разработки.
-CMD ["gunicorn", "--bind", "0.0.0.0:9090", "taski_backend.wsgi"]  
+CMD ["python", "manage.py", "runserver", "0:9090"]  
