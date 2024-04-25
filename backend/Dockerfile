@@ -23,4 +23,4 @@ RUN pip install -r requirements.txt --no-cache-dir
 COPY . .
 
 # При старте контейнера запустить сервер разработки.
-CMD ["python", "manage.py", "runserver", "0:9090"]  
+CMD ["python", "manage.py", "runserver", "0:8000"]  
