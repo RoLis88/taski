@@ -12,7 +12,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   backend:
-    image: $DOCKER_USERNAME/taski_backend
+    image: $DOCKER_USERNAME/taski_backend:latest
     env_file: .env
     volumes:
       - static:/static_backend
@@ -22,7 +22,7 @@ services:
 
   frontend:
     env_file: .env
-    image: $DOCKER_USERNAME/kittygram_frontend:latest
+    image: $DOCKER_USERNAME/taski_frontend:latest
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
@@ -30,7 +30,7 @@ services:
       - backend
 
   gateway:
-    image: $DOCKER_USERNAME/kittygram_gateway:latest
+    image: $DOCKER_USERNAME/taski_gateway:latest
     env_file: .env
     ports:
       - 8000:80
