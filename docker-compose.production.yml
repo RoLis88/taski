@@ -16,17 +16,26 @@ services:
     image: rolis88/taski_backend
     env_file: .env
     volumes:
-      - static_volume:/static_backend
+      - static:/static_backend
+    depends_on:
+      - db
+
   frontend:
     image: rolis88/taski_frontend  # Качаем с Docker Hub
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static_volume:/frontend_static
+      - static:/static
+    depends_on:
+      - backend 
+
   gateway:
     image: rolis88/taski_gateway  # Качаем с Docker Hub
     env_file: .env
     volumes:
-      - static_volume:/staticfiles/
+      - static:/static
     ports:
       - 8000:80
+    depends_on:
+      - backend
+      - frontend
