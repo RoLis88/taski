@@ -1,2 +1,10 @@
-node_modules
-build
+venv
+.git
+db.sqlite3
+
+# IDE files
+.idea
+.vscode
+
+# Environment variables
+.env
